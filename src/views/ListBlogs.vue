@@ -59,4 +59,12 @@ export default {
   box-sizing: border-box;
   background: #eee;
 }
+input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+}
 </style>

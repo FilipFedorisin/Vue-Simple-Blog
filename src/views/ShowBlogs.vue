@@ -3,8 +3,10 @@
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs" />
     <div v-for="blog in filteredBlogs" class="single-blog" v-bind:key="blog">
-      <h2 v-rainbow>{{ blog.title | toUppercase }}</h2>
-      <article>{{ blog.body | snippet }}</article>
+      <router-link v-bind:to="'/blog/' + blog.id">
+        <h2>{{ blog.title | toUppercase }}</h2>
+      </router-link>
+      <article>{{ blog.content | snippet }}</article>
     </div>
   </div>
 </template>
@@ -23,10 +25,18 @@ export default {
     loadBlogPosts: function() {
       // prettier-ignore
       this.$http
-        .get('http://jsonplaceholder.typicode.com/posts')
+        .get('https://blog-database-52f50.firebaseio.com/posts.json')
         .then(function(data) {
-          this.blogs = data.body.slice(0, 10);
-        });
+          return data.json();
+        })
+        .then(function(data){
+          var blogsArray = [];
+          for (let key in data){
+            data[key].id = key;
+            blogsArray.push(data[key]);
+          }
+          this.blogs = blogsArray;
+        })
     },
   },
   created() {
@@ -59,5 +69,13 @@ export default {
   margin: 20px 0;
   box-sizing: border-box;
   background: #eee;
+}
+input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
 }
 </style>

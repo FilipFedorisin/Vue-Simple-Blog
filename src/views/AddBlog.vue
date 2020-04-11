@@ -56,16 +56,13 @@ export default {
   },
   methods: {
     post: function() {
+      // prettier-ignore
       this.$http
-        .post('http://jsonplaceholder.typicode.com/posts', {
-          title: this.blog.title,
-          body: this.blog.content,
-          userID: 1,
-        })
-        .then(function(data) {
-          console.log(data);
-          this.submitted = true;
-        });
+      .post('https://blog-database-52f50.firebaseio.com/posts.json', this.blog)
+      .then(function(data) {
+        console.log(data);
+        this.submitted = true;
+      });
     },
   },
 };

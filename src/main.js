@@ -1,27 +1,18 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
-import VueRouter from 'vue-router';
-import Router from './router';
+import Router from './router/index';
 
 Vue.use(VueResource);
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-  routes: Router,
-});
+Vue.use(Router);
 
 // Custom Directives
 Vue.directive('theme', {
   bind(el, binding) {
-    if (binding.value == 'wide') {
-      el.style.maxWidth = '1200px';
-    } else if (binding.value == 'narrow') {
-      el.style.maxWidth = '500px';
-    }
-    if (binding.arg == 'column') {
-      el.style.background = '#ddd';
-      el.style.padding = '20px';
+    if (toString(binding.value) == 'white') {
+      el.style.background = 'white';
+    } else if (binding.value == 'dark') {
+      el.style.background = '#6b6b6b';
     }
   },
 });
@@ -33,5 +24,5 @@ Vue.filter('snippet', function(value) {
 
 new Vue({
   render: h => h(App),
-  router: router,
+  router: Router,
 }).$mount('#app');

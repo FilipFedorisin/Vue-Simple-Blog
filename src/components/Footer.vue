@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <hr />
+  <div v-theme="'dark'">
     <h4>FOOTER</h4>
-    <hr />
   </div>
 </template>
 
@@ -10,4 +8,4 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped></style>
