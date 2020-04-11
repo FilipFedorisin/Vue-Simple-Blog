@@ -1,17 +1,19 @@
 <template>
   <div>
-    <head>
-      <titl>Blog</titl>
-    </head>
-    <addBlog></addBlog>
+    <Header></Header>
+    <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import addBlog from './components/addBlog.vue';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 export default {
   components: {
-    addBlog,
+    Header,
+    Footer,
   },
   data() {
     return {};
