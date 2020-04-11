@@ -1,7 +1,9 @@
 <template>
   <div id="show-blogs">
-    <h1>All Blog Articles</h1>
-    <input type="text" v-model="search" placeholder="search blogs" />
+    <h1>Všetky Blogy</h1>
+    <div id="pojeb">
+      <input type="text" v-model="search" placeholder="Hľadať..." />
+    </div>
     <div v-for="blog in filteredBlogs" class="single-blog" v-bind:key="blog">
       <router-link v-bind:to="'/blog/' + blog.id">
         <h2>{{ blog.title | toUppercase }}</h2>
@@ -60,22 +62,39 @@ export default {
 </script>
 
 <style scoped>
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 #show-blogs {
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
+  padding: 0px;
 }
 .single-blog {
-  padding: 20px;
-  margin: 20px 0;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 15px;
+  margin: 15px 10px;
   box-sizing: border-box;
   background: #eee;
 }
 input {
+  border-radius: 4px;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+#pojeb {
+  margin: 10px;
 }
 h1 {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-align: center;
+}
+a {
+  font-family: sans-serif;
+  color: black;
+  text-decoration: none;
 }
 </style>

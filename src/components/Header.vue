@@ -3,7 +3,6 @@
     <nav>
       <ul>
         <li><router-link to="/" exact>HOME</router-link></li>
-        <li><router-link to="/list" exact>LIST</router-link></li>
         <li><router-link to="/add" exact>ADD</router-link></li>
       </ul>
     </nav>
@@ -34,7 +33,7 @@ a {
 nav {
   background: #444;
   padding: 14px 0;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 .router-link-active {
   background: #eee;

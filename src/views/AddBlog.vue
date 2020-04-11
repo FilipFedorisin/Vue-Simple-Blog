@@ -1,12 +1,16 @@
 <template>
   <div id="add-blog">
     <!-- Bacic Form -->
-    <h2>Tvorba nového blogu...</h2>
+    <h1>Pridať Blog</h1>
     <form v-if="!submitted">
       <label>Titulok:</label>
-      <input type="text" v-model.lazy="blog.title" required />
+      <div id="pojeb">
+        <input type="text" v-model.lazy="blog.title" required />
+      </div>
       <label>Obsah:</label>
-      <textarea v-model.lazy="blog.content"></textarea>
+      <div id="pojeb">
+        <textarea type="text" v-model.lazy="blog.content"></textarea>
+      </div>
       <div id="checkboxes">
         <label>Móda</label>
         <input type="checkbox" value="Móda" v-model="blog.categories" />
@@ -29,13 +33,14 @@
       <h3>Blog bol úspešne publikovaný...</h3>
     </div>
     <div id="preview">
-      <h4>{{ blog.title }}</h4>
+      <h1>{{ blog.title }}</h1>
       <p>{{ blog.content }}</p>
-      <p>Štítky</p>
+      <hr />
+      <p><b>Autor: </b>{{ blog.author }}</p>
+      <p><b>Štítky:</b></p>
       <ul>
         <li v-for="category in blog.categories" v-bind:key="category">{{ category }}</li>
       </ul>
-      <p>Autor: {{ blog.author }}</p>
     </div>
   </div>
 </template>
@@ -69,6 +74,19 @@ export default {
 </script>
 
 <style>
+input {
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+textarea {
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: none;
+  height: 200px;
+}
+#pojeb {
+  margin: 10px;
+}
 #add-blog * {
   box-sizing: border-box;
 }
@@ -79,30 +97,63 @@ export default {
 label {
   display: block;
   margin: 20px 0 10px;
+  padding-left: 10px;
 }
 input[type='text'],
 textarea {
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 3px;
 }
 #preview {
-  padding: 10px 20px;
-  border: 1px dotted #ccc;
-  margin: 30px 0;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 15px;
+  margin: 15px 10px;
+  box-sizing: border-box;
+  background: #eee;
 }
 #preview p {
   width: 100%;
   overflow: hidden;
+  padding: 0;
+  margin: 5px 0;
+}
+h1 {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
 }
 h3 {
   margin-top: 10px;
 }
 #checkboxes input {
   display: inline-block;
-  margin-right: 10px;
+  margin: 0px;
 }
 #checkboxes label {
   display: inline-block;
+  margin: 0px;
+  padding-right: 5px;
+}
+li {
+  display: inline-block;
+  margin: 0;
+  padding-right: 5px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+select {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+button {
+  float: right;
+  margin-right: 10px;
 }
 </style>

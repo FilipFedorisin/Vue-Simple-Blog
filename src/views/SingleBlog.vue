@@ -2,7 +2,9 @@
   <div id="single-blog">
     <h1>{{ blog.title }}</h1>
     <article>{{ blog.content }}</article>
-    <p>Author: {{ blog.author }}</p>
+    <hr />
+    <p>Autor: {{ blog.author }}</p>
+    <p>Tagy:</p>
     <ul>
       <li v-for="category in blog.categories" v-bind:key="category">{{ category }}</li>
     </ul>
@@ -33,7 +35,26 @@ export default {
 
 <style scoped>
 #single-blog {
-  max-width: 960px;
-  margin: 0 auto;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 15px;
+  margin: auto;
+  box-sizing: border-box;
+  background: #eee;
+  max-width: 800px;
+}
+p {
+  padding: 0;
+  margin: 5px 0;
+}
+li {
+  display: inline-block;
+  margin: 0;
+  padding-right: 5px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 </style>

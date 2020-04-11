@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="fill">
     <Header></Header>
     <router-view />
     <Footer></Footer>
@@ -8,12 +8,10 @@
 
 <script>
 import Header from './components/Header';
-import Footer from './components/Footer';
 
 export default {
   components: {
     Header,
-    Footer,
   },
   data() {
     return {};
@@ -28,5 +26,10 @@ export default {
 body {
   margin: 0;
   font-family: 'Nunito SemiBold';
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 </style>
