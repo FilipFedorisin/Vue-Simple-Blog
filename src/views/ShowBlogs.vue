@@ -4,7 +4,7 @@
     <div id="pojeb">
       <input type="text" v-model="search" placeholder="Hľadať..." />
     </div>
-    <div v-for="blog in filteredBlogs" class="single-blog" v-bind:key="blog">
+    <div v-for="blog in filteredBlogs.slice().reverse()" class="single-blog" v-bind:key="blog">
       <router-link v-bind:to="'/blog/' + blog.id">
         <h2>{{ blog.title | toUppercase }}</h2>
       </router-link>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import search from '../mixins/search';
 
 export default {
   data() {
@@ -57,7 +56,13 @@ export default {
       },
     },
   },
-  mixins: [search],
+  computed: {
+    filteredBlogs: function() {
+      return this.blogs.filter(blog => {
+        return blog.title.toLowerCase().match(this.search.toLowerCase());
+      });
+    },
+  },
 };
 </script>
 

@@ -39,6 +39,8 @@ export default {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   padding: 15px;
   margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   box-sizing: border-box;
   background: #eee;
   max-width: 800px;

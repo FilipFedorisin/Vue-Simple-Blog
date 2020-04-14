@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
-import Router from './router/index';
+import router from './router/index';
 
 Vue.use(VueResource);
-Vue.use(Router);
+Vue.use(router);
 
 // Custom Directives
 Vue.directive('theme', {
@@ -22,7 +22,8 @@ Vue.filter('snippet', function(value) {
   return value.slice(0, 100) + '...';
 });
 
+
 new Vue({
   render: h => h(App),
-  router: Router,
+  router,
 }).$mount('#app');

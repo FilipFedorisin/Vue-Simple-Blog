@@ -127,7 +127,9 @@ h1 {
   text-align: center;
 }
 h3 {
+  margin: auto;
   margin-top: 10px;
+  margin-left: 10px;
 }
 #checkboxes input {
   display: inline-block;
